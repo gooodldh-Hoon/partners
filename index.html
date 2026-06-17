@@ -437,17 +437,6 @@ function syncLive(manual){
   });
 }
 
-/* ---------- 보안 ---------- */
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
-});
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'F12') e.preventDefault();
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') e.preventDefault();
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'j')) e.preventDefault();
-});
-}  
-
 /* ---------- 부팅 ---------- */
 function boot(){
   var shown=false,cache=getCache();
@@ -460,6 +449,18 @@ function init(){
   if(unlocked||isUnlockedStored()){unlocked=true;boot();}
   else renderLock();
 }
+
+/* ---------- 보안 ---------- */
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'F12') e.preventDefault();
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') e.preventDefault();
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'j')) e.preventDefault();
+});
+}  
+  
 init();
 
 })();
